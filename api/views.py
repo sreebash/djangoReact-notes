@@ -62,7 +62,7 @@ def get_note(request, pk):
 @api_view(['POST'])
 def create_note(request):
     data = request.data
-    notes = Note.objects.create(body=data)
+    notes = Note.objects.create(body=data['body'])
     serializer = NoteSerializer(notes)
     return Response(serializer.data)
 
